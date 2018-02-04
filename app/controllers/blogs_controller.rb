@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action:set_blog, only:[:show, :edit, :update, :destroy]
+  before_action :set_blog, only:[:show, :edit, :update, :destroy]
 
  #HOME、一覧画面を表示
  def index
@@ -48,7 +48,7 @@ class BlogsController < ApplicationController
      #成功の場合
 
      #一覧画面へリダイレクト
-     redirect_to blogs_path, notice:'新規登録処理が完了しました'
+     redirect_to blogs_path, notice: '新規登録処理が完了しました'
    else
      #失敗の場合
 
@@ -59,7 +59,7 @@ class BlogsController < ApplicationController
 
  def confirm
    @blogs = Blog.new(blog_params)
-   render:new if @blogs.invalid?
+   render :new if @blogs.invalid?
  end
 
  private
