@@ -15,7 +15,7 @@ class BlogsController < ApplicationController
    if @blogs.update(blog_params)
      redirect_to blogs_path, notice: 'ブログの編集が完了しました'
    else
-     render 'edit'
+     render :edit
    end
  end
 
@@ -38,7 +38,7 @@ class BlogsController < ApplicationController
    if @blogs.save
      redirect_to blogs_path, notice: '新規登録処理が完了しました'
    else
-     render 'new'
+     render :new
    end
  end
 
