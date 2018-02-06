@@ -1,4 +1,4 @@
-<h1>投稿画面</h1>
+<h3>投稿画面</h3>
 
 <%= form_with(model: @blog, local: true) do |form| %>
 
@@ -11,7 +11,7 @@
    <%= form.text_field :content, class: "form-control" %>
  </div>
 
- <%= form.submit, class:"btn btn-primary" %>
+ <%= form.submit class: "btn btn-primary" %>
 <% end %>
 
 <%= link_to "ブログ一覧画面にもどる", blogs_path %>
