@@ -25,16 +25,12 @@ class BlogsController < ApplicationController
  end
 
  def new
-   if params[:back]
-     @blog = Blog.new(blog_params)
-   else
-     @blog = Blog.new
-   end
+   @blog = Blog.new
  end
 
  def create
    @blog = Blog.new(blog_params)
-
+   @blog.user_id = current_user.id
    if @blog.save
      redirect_to blogs_path, notice: '新規登録処理が完了しました'
    else
@@ -50,7 +46,7 @@ class BlogsController < ApplicationController
  private
 
    def blog_params
-     params.require(:blog).permit(:title, :content, :user_id)
+     params.require(:blog).permit(:title, :content)
    end
 
    def set_blog
