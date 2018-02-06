@@ -29,8 +29,7 @@ class BlogsController < ApplicationController
  end
 
  def create
-   @blog = Blog.new(blog_params)
-   @blog.user_id = current_user.id
+   @blog = current_user.blogs.build(blog_params)
    if @blog.save
      redirect_to blogs_path, notice: '新規登録処理が完了しました'
    else
