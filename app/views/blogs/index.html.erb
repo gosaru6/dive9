@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <% @blogs.each do |blog| %>
+      <% @blogs.reverse_order.each do |blog| %>
         <div class="post-preview">
           <%= link_to blog_path(blog.id) do %>
             <h2 class="post-title">
