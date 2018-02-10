@@ -1,17 +1,2 @@
 <h3>投稿画面</h3>
-
-<%= form_with(model: @blog, local: true) do |form| %>
-
- <div class="blog_title">
-   <%= form.label :title %>
-   <%= form.text_field :title, class: "form-control" %>
- </div>
- <div class="blog_title">
-   <%= form.label :content %>
-   <%= form.text_field :content, class: "form-control" %>
- </div>
-
- <%= form.submit class: "btn btn-primary" %>
-<% end %>
-
-<%= link_to "ブログ一覧画面にもどる", blogs_path %>
+<%= render "form" %>
