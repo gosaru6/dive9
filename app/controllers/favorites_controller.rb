@@ -1,4 +1,4 @@
-class FavoriteController < ApplicationController
+class FavoritesController < ApplicationController
 
   def create
     favorite = current_user.favorites.create(blog_id: params[:blog_id])

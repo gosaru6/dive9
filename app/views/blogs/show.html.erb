@@ -9,6 +9,13 @@
           <%= link_to "edit", edit_blog_path(@blog.id), class: "btn btn-info" %>
           <%= link_to "delete", blog_path(@blog.id), method: :delete, data: { confirm: "削除していいですか？" }, class: "btn btn-danger" %>
         <% end %>
+        <% unless @blog.user == current_user %>
+          <% if @favorite.present? %>
+            <%= link_to "cancel..", favorite_path(blog_id: @blog.id), method: :delete, class: "btn btn-warning" %>
+          <% else %>
+            <%= link_to "Like!", favorites_path(blog_id: @blog.id), method: :post, class: "btn btn-warning" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
