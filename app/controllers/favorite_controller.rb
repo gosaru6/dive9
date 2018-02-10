@@ -1,20 +1,13 @@
 class FavoriteController < ApplicationController
-  respond_to :js
 
   def create
-    if logged_in?
-      @blog = Blog.find(params[:favorite][:blog_id])
-      current_user.favorite!(@blog)
-      respond_with @blog
-    else
-      respond_with @blog
-    end
+    favorite = current_user.favorites.create(blog_id: params[:blog_id])
+    redirect_to blog_path(favorite.blog_id)
   end
 
   def destroy
-    @blog = Favorite.find(params[:id]).blog
-    current_user.unfavorite!(@blog)
-    respond_with @blog
+    favorite = current_user.favorites.find_by(blog_id: params[:blog_id]).destroy
+    redirect_to blog_path(favorite.blog_id)
   end
 
 end
