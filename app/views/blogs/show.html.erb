@@ -5,6 +5,8 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <h2 class="section-heading"><%= @blog.title %></h2>
         <p><%= @blog.content %></p>
+        <%= link_to "edit", edit_blog_path(@blog.id), class: "btn btn-info" %>
+        <%= link_to "delete", blog_path(@blog.id), method: :delete, data: { confirm: "削除していいですか？" }, class: "btn btn-danger" %>
       </div>
     </div>
   </div>
